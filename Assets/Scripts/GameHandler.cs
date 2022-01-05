@@ -5,6 +5,15 @@ using UnityEngine;
 public class GameHandler : MonoBehaviour
 {
     [SerializeField] private string mainSceneName = "MainMenu";
+    [SerializeField] private SceneTriggers[] sceneTriggers;
+
+    [System.Serializable]
+    public struct SceneTriggers 
+    {
+        public string sceneName;
+        public SceneLoadTrigger trigger;
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +38,19 @@ public class GameHandler : MonoBehaviour
 
     public void LoadSceneTrigger(SceneLoadTrigger trigger)
     {
-        loadScene(mainSceneName);
+        Debug.Log(trigger);
+        bool triggerFound = false;
+        foreach(SceneTriggers sceneTrigger in sceneTriggers)
+        {
+            Debug.Log(sceneTrigger.trigger);
+            if (sceneTrigger.trigger == trigger)
+            {
+                loadScene(sceneTrigger.sceneName);
+                triggerFound = true;
+            }
+        }
+        //if not in list, load main menu
+        if(!triggerFound) loadScene(mainSceneName);
     }
 
 }
