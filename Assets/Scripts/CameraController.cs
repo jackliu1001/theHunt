@@ -15,6 +15,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         //transform.position = (Vector3)((Vector2)target.position) + Vector3.forward * transform.position.z;
+        if (!target) target = GameObject.FindGameObjectWithTag("Player").transform;
         transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
     }
 }

@@ -11,6 +11,7 @@ public class GameHandler : MonoBehaviour
     public struct SceneTriggers 
     {
         public string sceneName;
+        public int targetTriggerIndex;
         public SceneLoadTrigger trigger;
         
     }
@@ -47,10 +48,24 @@ public class GameHandler : MonoBehaviour
             {
                 loadScene(sceneTrigger.sceneName);
                 triggerFound = true;
+                SceneLoadHandler.TargetTrigger = sceneTrigger.targetTriggerIndex;
             }
         }
         //if not in list, load main menu
         if(!triggerFound) loadScene(mainSceneName);
+    }
+
+    public SceneLoadTrigger GetSceneLoadTrigger(int index)
+    {
+        if(index >= sceneTriggers.Length || index < 0)
+        {
+            Debug.LogWarning("Scene Trigger Index not valid");
+            return sceneTriggers[0].trigger;
+        }
+        else
+        {
+            return sceneTriggers[index].trigger;
+        }
     }
 
 }
