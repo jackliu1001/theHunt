@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController : PhysicsObject
 {
     [SerializeField] private float horizontalSpeed = 5f;
     [SerializeField] private float verticalSpeed = 10f;
     [SerializeField] protected float jumpForce;
-    [HideInInspector] public bool isGrouded;
 
     private bool isJumping;
     private Rigidbody2D rb;
@@ -23,36 +22,25 @@ public class CharacterController : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Jump");
-        rb.velocity = new Vector2(horizontal * horizontalSpeed, rb.velocity.y);
-        //if(Input.GetKeyDown(KeyCode.Space))
-        //rb.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
-        jumpPressed();
-    }
-
-    protected void FixedUpdate()
-    {
-        IsJumping();
-    }
-
-    bool jumpPressed()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
-
-            return true;
+            isJumping = true; 
+            rb.velocity = new Vector2(horizontal * horizontalSpeed, jumpForce);
+        }
+        else if (isJumping && Input.GetKeyUp(KeyCode.Space))
+        {
+            isJumping = false;
+            if(rb.velocity.y>0)
+                rb.velocity = new Vector2(horizontal * horizontalSpeed, 0);
+            else
+                rb.velocity = new Vector2(horizontal * horizontalSpeed, rb.velocity.y);
         }
         else
-            return false;
-    }
-
-    void IsJumping()
-    {
-        if(isJumping)
-            rb.AddForce(Vector2.up * jumpForce);
-    }
-
-    protected bool collisionCheck()
-    {
-
+        {
+            rb.velocity = new Vector2(horizontal * horizontalSpeed, rb.velocity.y);
+        }
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //rb.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
+        
     }
 }
