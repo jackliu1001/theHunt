@@ -4,43 +4,81 @@ using UnityEngine;
 
 public class CharacterController : PhysicsObject
 {
-    [SerializeField] private float horizontalSpeed = 5f;
-    [SerializeField] private float verticalSpeed = 10f;
+    [SerializeField] private float horizontalSpeed = 7f;
+    [SerializeField] protected float sprintMultiplier;
     [SerializeField] protected float jumpForce;
+    [HideInInspector] public bool isFacingLeft;
 
+    protected float currentSpeed;
     private bool isJumping;
     private Rigidbody2D rb;
+    private Vector2 facingLeft;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        facingLeft = new Vector2(-transform.localScale.x, transform.localScale.y);
     }
 
     // Update is called once per frame
     void Update()
     {
+        movement();
+        checkDirection();
+    }
+
+    void movement()
+    {
         float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Jump");
+        currentSpeed = horizontal * horizontalSpeed;
+        jump();
+        sprint();
+        rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
+    }
+
+    void jump()
+    {
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
-            isJumping = true; 
-            rb.velocity = new Vector2(horizontal * horizontalSpeed, jumpForce);
+            isJumping = true;
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
         else if (isJumping && Input.GetKeyUp(KeyCode.Space))
         {
             isJumping = false;
-            if(rb.velocity.y>0)
-                rb.velocity = new Vector2(horizontal * horizontalSpeed, 0);
+            if (rb.velocity.y > 0)
+                rb.velocity = new Vector2(rb.velocity.x, 0);
             else
-                rb.velocity = new Vector2(horizontal * horizontalSpeed, rb.velocity.y);
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
         }
-        else
+    }
+
+    protected void checkDirection()
+    {
+        if (rb.velocity.x > 0 && isFacingLeft)
         {
-            rb.velocity = new Vector2(horizontal * horizontalSpeed, rb.velocity.y);
+            isFacingLeft = false;
+            flip();
         }
-        //if(Input.GetKeyDown(KeyCode.Space))
-        //rb.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
-        
+        if(rb.velocity.x < 0 && !isFacingLeft)
+        {
+            isFacingLeft = true;
+            flip();
+        }
+    }
+
+    void flip()
+    {
+        if (isFacingLeft)
+            transform.localScale = facingLeft;
+        else
+            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+    }
+
+    void sprint()
+    {
+        if(Input.GetKey(KeyCode.LeftShift))
+            currentSpeed = currentSpeed * sprintMultiplier;
     }
 }

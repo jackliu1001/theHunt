@@ -8,7 +8,7 @@ public class PhysicsObject : MonoBehaviour
     [SerializeField] protected LayerMask groundMask;
     virtual protected bool grounded()
     {
-        RaycastHit2D hit = rayCast(transform.position, Vector2.down, 0.5f + 0.1f, groundMask);
+        RaycastHit2D hit = rayCast(transform.position, Vector2.down, 1.25f + 0.1f, groundMask);
         if (hit.collider) return true;
 
         return false;
