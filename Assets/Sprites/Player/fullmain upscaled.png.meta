@@ -526,7 +526,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_68
+      name: magic1
       rect:
         serializedVersion: 2
         x: 56
@@ -547,7 +547,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_70
+      name: magic2
       rect:
         serializedVersion: 2
         x: 252
@@ -568,7 +568,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_72
+      name: magic3
       rect:
         serializedVersion: 2
         x: 423
@@ -589,7 +589,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_74
+      name: magic4
       rect:
         serializedVersion: 2
         x: 636
@@ -610,7 +610,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_76
+      name: magic5
       rect:
         serializedVersion: 2
         x: 836
@@ -631,7 +631,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_78
+      name: magic6
       rect:
         serializedVersion: 2
         x: 1025
@@ -652,7 +652,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_80
+      name: magic7
       rect:
         serializedVersion: 2
         x: 1204
@@ -673,7 +673,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_82
+      name: magic8
       rect:
         serializedVersion: 2
         x: 1452
@@ -694,7 +694,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_84
+      name: magic9
       rect:
         serializedVersion: 2
         x: 1655
@@ -1114,7 +1114,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_144
+      name: crouch1
       rect:
         serializedVersion: 2
         x: 40
@@ -1135,7 +1135,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_146
+      name: crouch2
       rect:
         serializedVersion: 2
         x: 240
@@ -1156,7 +1156,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_148
+      name: crouchwalk1
       rect:
         serializedVersion: 2
         x: 640
@@ -1177,7 +1177,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_150
+      name: crouchwalk2
       rect:
         serializedVersion: 2
         x: 845
@@ -1198,7 +1198,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_152
+      name: coruchwalk3
       rect:
         serializedVersion: 2
         x: 1052
@@ -1219,7 +1219,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_154
+      name: crouchwalk4
       rect:
         serializedVersion: 2
         x: 1244
@@ -1240,7 +1240,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_156
+      name: sprint1
       rect:
         serializedVersion: 2
         x: 48
@@ -1261,7 +1261,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_158
+      name: sprint2
       rect:
         serializedVersion: 2
         x: 233
@@ -1282,7 +1282,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_159
+      name: sprint3
       rect:
         serializedVersion: 2
         x: 412
@@ -1303,7 +1303,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_160
+      name: sprint4
       rect:
         serializedVersion: 2
         x: 624
@@ -1324,7 +1324,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_161
+      name: sprint5
       rect:
         serializedVersion: 2
         x: 824
@@ -1345,7 +1345,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_176
+      name: dodge1
       rect:
         serializedVersion: 2
         x: 34
@@ -1366,7 +1366,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_178
+      name: dodge2
       rect:
         serializedVersion: 2
         x: 218
@@ -1387,7 +1387,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_179
+      name: dodge3
       rect:
         serializedVersion: 2
         x: 402
@@ -1408,7 +1408,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_180
+      name: dodge4
       rect:
         serializedVersion: 2
         x: 612
@@ -1429,7 +1429,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_181
+      name: dodge5
       rect:
         serializedVersion: 2
         x: 814

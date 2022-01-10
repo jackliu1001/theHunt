@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class PhysicsObject : MonoBehaviour
 {
-    protected bool isGrounded { get { return grounded(); } }
+    [HideInInspector] protected bool isGrounded { 
+        get { return grounded(); }
+    }
     [SerializeField] protected LayerMask groundMask;
     virtual protected bool grounded()
     {
         RaycastHit2D hit = rayCast(transform.position, Vector2.down, 1.25f + 0.1f, groundMask);
-        if (hit.collider) return true;
+        if (hit.collider)
+        {
+            return true;
+        }
+       
 
         return false;
     }

@@ -5,13 +5,15 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform target;
-    // Start is called before the first frame update
+    public Vector3 offset;
+    [Range(0, 10)] public float smoothing;
 
-    // Update is called once per frame
     void Update()
     {
         if (!target)
             target = GameObject.FindGameObjectWithTag("Player").transform;
-        transform.position = new Vector3(target.position.x, target.position.y + 2.5f, transform.position.z);
+        Vector3 targetPosition = target.position + offset;
+        Vector3 smoothedCamera = Vector3.Lerp(transform.position, targetPosition, smoothing * Time.deltaTime);
+        transform.position = smoothedCamera;
     }
 }

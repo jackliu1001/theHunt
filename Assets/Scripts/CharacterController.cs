@@ -2,29 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class CharacterController : PhysicsObject
 {
     [SerializeField] private float horizontalSpeed = 7f;
     [SerializeField] protected float sprintMultiplier;
+    [SerializeField] protected float crouchMultiplier;
     [SerializeField] protected float jumpForce;
+    [SerializeField] protected float dashForce;
+    [SerializeField] protected float dashCooldown;
+    [SerializeField] [Range(0, 1)] protected float colliderMultiplier;
     [HideInInspector] public bool isFacingLeft;
+    [HideInInspector] public bool isCrouching;
+    [HideInInspector] public bool isDodging;
+
+    private BoxCollider2D player;
+    private Vector2 originalCollider;
+    private Vector2 crouchCollider;
+    private Vector2 originalOffset;
+    private Vector2 crouchOffset;
 
     protected float currentSpeed;
-    private bool isJumping;
+    protected bool isJumping;
     private Rigidbody2D rb;
     private Vector2 facingLeft;
+    protected Animator anim;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         facingLeft = new Vector2(-transform.localScale.x, transform.localScale.y);
+        anim = GetComponent<Animator>();
+        player = GetComponent<BoxCollider2D>();
+        originalCollider = player.size;
+        crouchCollider = new Vector2(player.size.x, player.size.y * colliderMultiplier);
+        originalOffset = player.offset;
+        crouchOffset = new Vector2(player.offset.x, player.offset.y*colliderMultiplier);
     }
 
     // Update is called once per frame
     void Update()
     {
         movement();
+        crouch();
         checkDirection();
     }
 
@@ -35,11 +57,17 @@ public class CharacterController : PhysicsObject
         jump();
         sprint();
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
+        if (currentSpeed != 0)
+            anim.SetBool("Moving", true);
+        else
+            anim.SetBool("Moving", false);
+        anim.SetFloat("CurrentSpeed", currentSpeed);
     }
 
     void jump()
     {
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        anim.SetBool("Grounded", isGrounded);
+        if (isGrounded && Input.GetKey(KeyCode.Space))
         {
             isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -52,6 +80,7 @@ public class CharacterController : PhysicsObject
             else
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
         }
+        anim.SetFloat("VerticalSpeed", rb.velocity.y);
     }
 
     protected void checkDirection()
@@ -78,7 +107,46 @@ public class CharacterController : PhysicsObject
 
     void sprint()
     {
-        if(Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
             currentSpeed = currentSpeed * sprintMultiplier;
+        }
+    }
+    void crouch()
+    {
+        if (Input.GetKey(KeyCode.S) && isGrounded)
+        {
+            isCrouching = true;
+            anim.SetBool("Crouch", true);
+            player.size = crouchCollider;
+            player.offset = crouchOffset;
+            currentSpeed *= crouchMultiplier;
+            rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
+        }
+        else
+        {
+            //To do
+            //Add platform and prevent raising up while under
+            StartCoroutine(CrouchDisabled());
+        }
+
+    }
+
+    protected IEnumerator CrouchDisabled()
+    {
+        player.offset = originalOffset;
+        yield return new WaitForSeconds(0.01f);
+        player.size = originalCollider;
+        yield return new WaitForSeconds(0.05f);
+        isCrouching = false;
+        anim.SetBool("Crouch", false);
+    }
+
+    void dash()
+    {
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            
+        }
     }
 }
