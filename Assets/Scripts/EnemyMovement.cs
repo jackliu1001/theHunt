@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class EnemyMovement : AIManager
 {
-    [SerializeField] protected enum MovementType { Normal }
+    public enum MovementType { Normal }
     [SerializeField] protected MovementType type;
+
+    public enum MovementStates { idle, follow, move};
+    private MovementStates movementState;
+    public MovementStates MovementState { set { movementState = value; } }
+
     [SerializeField] protected float timeTillMaxSpeed;
     [SerializeField] protected bool spawnFacingLeft;
     [SerializeField] protected bool turnAroundOnCollision;
@@ -24,7 +29,7 @@ public class EnemyMovement : AIManager
         base.Initialization();
         if(spawnFacingLeft)
         {
-            enemyCharacter.facingLeft = true;
+            facingLeft = true;
             transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         }
         Invoke("Spawning", 0.01f);
@@ -32,7 +37,28 @@ public class EnemyMovement : AIManager
 
     protected virtual void FixedUpdate()
     {
-        movement();
+        switch (movementState)
+        {
+            case MovementStates.move:
+                movement();
+                break;
+            case MovementStates.follow:
+                follow();
+                break;
+            case MovementStates.idle:
+                idle();
+                break;
+        }
+        
+    }
+    protected void idle()
+    {
+
+    }
+
+    protected void follow()
+    {
+
     }
 
     protected void movement()

@@ -123,10 +123,10 @@ public class CharacterController : PhysicsObject
             currentSpeed *= crouchMultiplier;
             rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
         }
-        else
-        {
+        else if (isCrouching && hasHeadroom){
             //To do
             //Add platform and prevent raising up while under
+
             StartCoroutine(CrouchDisabled());
         }
 

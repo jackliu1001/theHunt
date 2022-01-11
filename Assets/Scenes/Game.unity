@@ -1635,7 +1635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.2000122, y: -0.19998169}
+  m_AnchoredPosition: {x: 0.2000122, y: -0.19995117}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &759530040
@@ -6118,7 +6118,8 @@ EdgeCollider2D:
   - {x: 24.334927, y: 4.146762}
   - {x: 24.938328, y: 4.0641227}
   - {x: 24.923079, y: 4.011358}
-  - {x: 24.936365, y: 3.1145499}
+  - {x: 24.987816, y: 3.0172598}
+  - {x: 22.074347, y: 3.0023136}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -6133,8 +6134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1903484642}
   - component: {fileID: 1903484644}
-  - component: {fileID: 1903484643}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6155,19 +6155,6 @@ Transform:
   m_Father: {fileID: 1924735250}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1903484643
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903484641}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1903484644
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6233,7 +6220,8 @@ GameObject:
   - component: {fileID: 1924735247}
   - component: {fileID: 1924735246}
   - component: {fileID: 1924735245}
-  m_Layer: 0
+  - component: {fileID: 1924735251}
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6253,6 +6241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingLeft: 0
+  target: {fileID: 22637136}
   type: 0
   timeTillMaxSpeed: 1
   spawnFacingLeft: 0
@@ -6269,12 +6258,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924735244}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4b331ddeda05f946ba32b7f7d403911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   facingLeft: 0
+  target: {fileID: 0}
 --- !u!61 &1924735247
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6321,7 +6311,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1924735249
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6388,6 +6378,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1924735251
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924735244}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 234a1676b6210594eb0019b7ce5d5f46, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1935667599
 GameObject:
   m_ObjectHideFlags: 0
@@ -6606,6 +6615,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1339558434748310595, guid: 0dd4286c5ab940a41aa0216475cba09c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1339558434748310621, guid: 0dd4286c5ab940a41aa0216475cba09c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6649,6 +6662,10 @@ PrefabInstance:
     - target: {fileID: 1339558434748310621, guid: 0dd4286c5ab940a41aa0216475cba09c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1339558434748310623, guid: 0dd4286c5ab940a41aa0216475cba09c, type: 3}
+      propertyPath: headroomMask.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 8005858945607254285, guid: 0dd4286c5ab940a41aa0216475cba09c, type: 3}
       propertyPath: healthbar
