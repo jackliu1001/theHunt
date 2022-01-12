@@ -50,7 +50,7 @@ public class CharacterController : PhysicsObject
         checkDirection();
     }
 
-    protected virtual void movement()
+    void movement()
     {
         float horizontal = Input.GetAxis("Horizontal");
         currentSpeed = horizontal * horizontalSpeed;
