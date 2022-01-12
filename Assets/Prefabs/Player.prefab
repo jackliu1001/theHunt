@@ -153,6 +153,8 @@ MonoBehaviour:
   sprintMultiplier: 1.5
   crouchMultiplier: 0.6
   jumpForce: 15
+  dashForce: 0
+  dashCooldown: 0
   colliderMultiplier: 0.8
   isFacingLeft: 0
   isCrouching: 0
