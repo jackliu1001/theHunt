@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -2482029789822481479
-    second: fullmain upscaled_1
+    second: attack14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -715,7 +715,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_103
+      name: attack3
       rect:
         serializedVersion: 2
         x: 440
@@ -736,7 +736,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_111
+      name: attack8
       rect:
         serializedVersion: 2
         x: 1392
@@ -757,7 +757,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_112
+      name: attack9
       rect:
         serializedVersion: 2
         x: 1636
@@ -778,7 +778,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_114
+      name: attack10
       rect:
         serializedVersion: 2
         x: 1832
@@ -799,7 +799,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_115
+      name: attack1
       rect:
         serializedVersion: 2
         x: 44
@@ -820,7 +820,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_117
+      name: attack2
       rect:
         serializedVersion: 2
         x: 250
@@ -841,7 +841,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_118
+      name: attack4
       rect:
         serializedVersion: 2
         x: 626
@@ -862,7 +862,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_119
+      name: attack7
       rect:
         serializedVersion: 2
         x: 1196
@@ -883,7 +883,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_120
+      name: attack5
       rect:
         serializedVersion: 2
         x: 799
@@ -904,7 +904,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_121
+      name: attack6
       rect:
         serializedVersion: 2
         x: 1002
@@ -925,7 +925,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_125
+      name: attack11
       rect:
         serializedVersion: 2
         x: 52
@@ -946,10 +946,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_126
+      name: attack12
       rect:
         serializedVersion: 2
-        x: 242
+        x: 240
         y: 880
         width: 126
         height: 155
@@ -967,7 +967,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_128
+      name: attack17
       rect:
         serializedVersion: 2
         x: 1240
@@ -988,7 +988,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_129
+      name: attack13
       rect:
         serializedVersion: 2
         x: 398
@@ -1009,10 +1009,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_130
+      name: attack18
       rect:
         serializedVersion: 2
-        x: 1452
+        x: 1448
         y: 880
         width: 96
         height: 140
@@ -1030,7 +1030,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_131
+      name: attack19
       rect:
         serializedVersion: 2
         x: 1640
@@ -1051,7 +1051,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_133
+      name: attack20
       rect:
         serializedVersion: 2
         x: 1852
@@ -1072,7 +1072,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_135
+      name: attack15
       rect:
         serializedVersion: 2
         x: 798
@@ -1093,10 +1093,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_137
+      name: attack16
       rect:
         serializedVersion: 2
-        x: 997
+        x: 999
         y: 880
         width: 151
         height: 126
@@ -1450,7 +1450,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fullmain upscaled_1
+      name: attack14
       rect:
         serializedVersion: 2
         x: 601
