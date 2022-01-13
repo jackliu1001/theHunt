@@ -45,6 +45,7 @@ public class CharacterController : PhysicsObject
     // Update is called once per frame
     void Update()
     {
+        if (isGrounded && Input.GetMouseButtonDown(0)) anim.SetTrigger("Attack");
         movement();
         crouch();
         checkDirection();
@@ -107,7 +108,7 @@ public class CharacterController : PhysicsObject
 
     void sprint()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (isGrounded && Input.GetKey(KeyCode.LeftShift))
         {
             currentSpeed = currentSpeed * sprintMultiplier;
         }
@@ -148,5 +149,10 @@ public class CharacterController : PhysicsObject
         {
             
         }
+    }
+
+    public void TakeDamage()
+    {
+
     }
 }

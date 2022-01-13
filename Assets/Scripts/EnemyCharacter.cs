@@ -28,5 +28,8 @@ public class EnemyCharacter : MonoBehaviour
         col = GetComponent<Collider2D>();
     }
 
-    
+    public void TakeDamage()
+    {
+
+    }
 }

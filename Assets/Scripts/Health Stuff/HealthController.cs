@@ -6,6 +6,8 @@ public class HealthController : MonoBehaviour
 {
     [SerializeField] protected int maxHealth;
     public int currentHealth;
+    [SerializeField] GameObject controller;
+
     public Healthbar healthbar;
 
     private void Start()
@@ -14,17 +16,17 @@ public class HealthController : MonoBehaviour
         healthbar.setMaxHealth(maxHealth);
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Backspace))
-        {
-            takeDamage(20);
-        }
-    }
+   
 
     void takeDamage(int damage)
     {
         currentHealth -= damage;
-        healthbar.setHealth(currentHealth);
+        if(healthbar) healthbar.setHealth(currentHealth);
+        controller.SendMessage("TakeDamage");
+    }
+
+    public virtual void TakeDamage(int damage)
+    {
+        takeDamage(damage);
     }
 }
