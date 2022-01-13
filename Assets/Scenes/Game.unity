@@ -2340,6 +2340,7 @@ GameObject:
   - component: {fileID: 1310047207}
   - component: {fileID: 1310047206}
   - component: {fileID: 1310047205}
+  - component: {fileID: 1310047209}
   m_Layer: 7
   m_Name: Wall
   m_TagString: Untagged
@@ -2493,6 +2494,28 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!68 &1310047209
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310047203}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 18.038418, y: 2.7882981}
+  - {x: 18.02106, y: 1.3187897}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1351761039
 GameObject:
   m_ObjectHideFlags: 0
@@ -6240,9 +6263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f645db18c26b549ae299e3400eaa06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facingLeft: 0
-  target: {fileID: 22637136}
   type: 0
+  facingLeft: 0
   timeTillMaxSpeed: 1
   spawnFacingLeft: 0
   turnAroundOnCollision: 1
@@ -6251,6 +6273,7 @@ MonoBehaviour:
   collidersToTurn:
     serializedVersion: 2
     m_Bits: 128
+  distance: 0
 --- !u!114 &1924735246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6258,13 +6281,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924735244}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4b331ddeda05f946ba32b7f7d403911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facingLeft: 0
-  target: {fileID: 0}
+  target: {fileID: 22637136}
 --- !u!61 &1924735247
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -5,17 +5,20 @@ using UnityEngine;
 public class AIEnemyIdle : StateMachineBehaviour
 {
     [SerializeField] private EnemyMovement enemyMovement;
+    [SerializeField] private float idleTime = 2;
+    private float idleStartTime;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemyMovement = animator.gameObject.GetComponent<EnemyMovement>();
-        enemyMovement.MovementState = EnemyMovement.MovementStates.idle;
+        enemyMovement.idleStart() ;
+        idleStartTime = Time.time;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        if (idleStartTime + idleTime < Time.time) animator.SetBool("Waiting", false);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

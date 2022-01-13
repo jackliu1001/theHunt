@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyMovement : AIManager
 {
+    
+
     public enum MovementType { Normal }
     [SerializeField] protected MovementType type;
 
@@ -11,6 +13,7 @@ public class EnemyMovement : AIManager
     private MovementStates movementState;
     public MovementStates MovementState { set { movementState = value; } }
 
+    [SerializeField] protected bool facingLeft;
     [SerializeField] protected float timeTillMaxSpeed;
     [SerializeField] protected bool spawnFacingLeft;
     [SerializeField] protected bool turnAroundOnCollision;
@@ -19,10 +22,14 @@ public class EnemyMovement : AIManager
     [SerializeField] LayerMask collidersToTurn;
 
     private bool spawning = true;
-    private float direction;
+    private int direction;
     private float acceleration;
     private float runTime;
     protected float currentSpeed;
+
+    private Transform target;
+    [SerializeField] private float distance;
+    public float Distance { get { return distance; } }
 
     protected override void Initialization()
     {
@@ -40,7 +47,7 @@ public class EnemyMovement : AIManager
         switch (movementState)
         {
             case MovementStates.move:
-                movement();
+                move();
                 break;
             case MovementStates.follow:
                 follow();
@@ -51,25 +58,42 @@ public class EnemyMovement : AIManager
         }
         
     }
+    public void idleStart()
+    {
+        movementState = MovementStates.idle;
+    }
     protected void idle()
     {
 
     }
-
+    public void followStart()
+    {
+        movementState = MovementStates.follow;
+    }
     protected void follow()
     {
-
+        if (!target) target = GameObject.FindGameObjectWithTag("Player").transform;
+        int direction = transform.position.x < target.position.x ? 1 : -1;
+        if(direction != this.direction)
+        {
+            changeDirection();
+            this.direction = direction;
+        }
+        movement();
     }
-
-    protected void movement()
+    public void moveStart()
     {
-        if (!enemyCharacter.facingLeft)
+        distance = 0;
+        movementState = MovementStates.move;
+    }
+    private void move()
+    {
+        if (!facingLeft)
         {
             direction = 1;
             if (CollisionCheck(Vector2.right, 0.5f, collidersToTurn) && turnAroundOnCollision && !spawning)
             {
-                enemyCharacter.facingLeft = true;
-                transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+                changeDirection();
             }
         }
         else
@@ -77,26 +101,30 @@ public class EnemyMovement : AIManager
             direction = -1;
             if (CollisionCheck(Vector2.left, 0.5f, collidersToTurn) && turnAroundOnCollision && !spawning)
             {
-                enemyCharacter.facingLeft = false;
-                transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+                changeDirection();
             }
         }
+        movement();
+    }
+
+    void changeDirection()
+    {
+        facingLeft = !facingLeft;
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+    }
+
+    protected void movement()
+    {
+        
         acceleration = maxSpeed / timeTillMaxSpeed;
         runTime += Time.deltaTime;
-        currentSpeed = acceleration * direction * runTime;
-        checkSpeed();
+        currentSpeed = Mathf.Clamp(acceleration * direction * runTime, -maxSpeed, maxSpeed);
+        distance += Mathf.Abs(currentSpeed * Time.deltaTime);
+        
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
     }
 
-    protected void checkSpeed()
-    {
-        if (currentSpeed > maxSpeed)
-        {
-            currentSpeed = maxSpeed;
-        }
-        else if (currentSpeed < -maxSpeed)
-            currentSpeed = -maxSpeed;
-    }
+    
 
     protected virtual void Spawning()
     {

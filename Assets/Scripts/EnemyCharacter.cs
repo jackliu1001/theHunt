@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyCharacter : MonoBehaviour
 {
-    [HideInInspector] public bool facingLeft;
+    
     protected Rigidbody2D rb;
     protected Collider2D col;
     protected Animator anim;
@@ -28,16 +28,5 @@ public class EnemyCharacter : MonoBehaviour
         col = GetComponent<Collider2D>();
     }
 
-    protected virtual bool CollisionCheck(Vector2 direction, float distance, LayerMask mask)
-    {
-        RaycastHit2D[] hits = new RaycastHit2D[10];
-        int numofhits = col.Cast(direction, hits, distance);
-        for(int i=0; i<numofhits; i++)
-        {
-            //Debug.Log($"{1 << hits[i].collider.gameObject.layer} {1 << hits[i].collider.gameObject.layer & mask}");
-            if ((1 << hits[i].collider.gameObject.layer & mask) != 0)
-                return true;
-        }
-        return false;
-    }
+    
 }

@@ -5,17 +5,18 @@ using UnityEngine;
 public class AIEnemyMove : StateMachineBehaviour
 {
     [SerializeField] private EnemyMovement enemyMovement;
+    [SerializeField] private float moveDistance = 10;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemyMovement = animator.gameObject.GetComponent<EnemyMovement>();
-        enemyMovement.MovementState = EnemyMovement.MovementStates.move;
+        enemyMovement.moveStart();
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        if (enemyMovement.Distance >= moveDistance) animator.SetBool("Waiting", true);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

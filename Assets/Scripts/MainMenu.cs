@@ -6,6 +6,8 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private string gameSceneName = "Game";
 
+
+
     public void gameLoad()
     {
         loadScene(gameSceneName);
