@@ -18,7 +18,10 @@ public class AIEnemyIdle : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (idleStartTime + idleTime < Time.time) animator.SetBool("Waiting", false);
+        if (idleStartTime + idleTime < Time.time)
+        {
+            animator.SetBool("Waiting", false);
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
