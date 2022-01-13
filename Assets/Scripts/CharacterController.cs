@@ -45,6 +45,8 @@ public class CharacterController : PhysicsObject
     // Update is called once per frame
     void Update()
     {
+        if (isGrounded && Input.GetMouseButtonDown(0))
+            anim.SetTrigger("Attack");
         movement();
         crouch();
         checkDirection();
@@ -107,7 +109,7 @@ public class CharacterController : PhysicsObject
 
     void sprint()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && isGrounded)
         {
             currentSpeed = currentSpeed * sprintMultiplier;
         }
@@ -124,12 +126,8 @@ public class CharacterController : PhysicsObject
             rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
         }
         else if (isCrouching && hasHeadroom){
-            //To do
-            //Add platform and prevent raising up while under
-
             StartCoroutine(CrouchDisabled());
         }
-
     }
 
     protected IEnumerator CrouchDisabled()
@@ -142,11 +140,16 @@ public class CharacterController : PhysicsObject
         anim.SetBool("Crouch", false);
     }
 
-    void dash()
+    void dodge()
     {
         if(Input.GetKeyDown(KeyCode.L))
         {
             
         }
+    }
+
+    public void takeDamage()
+    {
+
     }
 }
