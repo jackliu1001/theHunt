@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene2.unity
     guid: 1896744eab7e373428b262a310e08b9d
+  - enabled: 1
+    path: Assets/Scenes/stringstar field.unity
+    guid: cc9dde2de0b1fbf488cb15ac03d577b0
   m_configObjects: {}

@@ -9,7 +9,7 @@ public class AIEnemyFollow : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemyMovement = animator.gameObject.GetComponent<EnemyMovement>();
-        enemyMovement.MovementState = EnemyMovement.MovementStates.follow;
+        enemyMovement.followStart();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
