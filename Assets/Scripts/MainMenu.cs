@@ -6,15 +6,14 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private string gameSceneName = "Game";
 
-
-
     public void gameLoad()
     {
-        loadScene(gameSceneName);
+        SceneHandler.loadScene("Game");
     }
 
-    private void loadScene(string name)
+    public void quitGame()
     {
-        SceneHandler.loadScene(name);
+        Debug.Log("Quit!");
+        Application.Quit();
     }
 }
