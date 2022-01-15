@@ -5368,7 +5368,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06525093, y: -0.052200437}
+  m_Offset: {x: -0.028830051, y: -0.033989906}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5379,7 +5379,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1305019, y: 2.6704223}
+  m_Size: {x: 1.130502, y: 2.5611591}
   m_EdgeRadius: 0
 --- !u!114 &1284107100
 MonoBehaviour:
@@ -12464,6 +12464,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1339558434748310595, guid: 0dd4286c5ab940a41aa0216475cba09c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1339558434748310621, guid: 0dd4286c5ab940a41aa0216475cba09c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -12511,6 +12515,18 @@ PrefabInstance:
     - target: {fileID: 1339558434748310623, guid: 0dd4286c5ab940a41aa0216475cba09c, type: 3}
       propertyPath: headroomMask.m_Bits
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692095870395614164, guid: 0dd4286c5ab940a41aa0216475cba09c, type: 3}
+      propertyPath: m_Size.x
+      value: 1.1006643
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692095870395614164, guid: 0dd4286c5ab940a41aa0216475cba09c, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.10319275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692095870395614164, guid: 0dd4286c5ab940a41aa0216475cba09c, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 8005858945607254285, guid: 0dd4286c5ab940a41aa0216475cba09c, type: 3}
       propertyPath: healthbar
