@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyMovement : AIManager
 {
-    
-
     public enum MovementType { Normal }
     [SerializeField] protected MovementType type;
 
@@ -123,8 +121,6 @@ public class EnemyMovement : AIManager
         
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
     }
-
-    
 
     protected virtual void Spawning()
     {

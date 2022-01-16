@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealthController : MonoBehaviour
 {
     [SerializeField] protected int maxHealth;
+    [SerializeField] protected Animator anim;
     public int currentHealth;
     [SerializeField] GameObject controller;
 
@@ -20,11 +21,24 @@ public class HealthController : MonoBehaviour
     {
         currentHealth -= damage;
         healthbar.setHealth(currentHealth);
-        controller.SendMessage("");
+        controller.SendMessage("Took some damage");
+    }
+
+    private void Update()
+    {
+        if(currentHealth <= 0)
+        {
+            death();
+        }
     }
 
     public virtual void TakeDamage(int damage)
     {
         takeDamage(damage);
+    }
+
+    void death()
+    {
+        anim.SetTrigger("Death");
     }
 }
