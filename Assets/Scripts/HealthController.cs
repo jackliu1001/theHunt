@@ -21,6 +21,7 @@ public class HealthController : MonoBehaviour
     {
         currentHealth -= damage;
         healthbar.setHealth(currentHealth);
+        hit();
         controller.SendMessage("Took some damage");
     }
 
@@ -40,5 +41,10 @@ public class HealthController : MonoBehaviour
     void death()
     {
         anim.SetTrigger("Death");
+    }
+    
+    void hit()
+    {
+        anim.SetTrigger("Hit");
     }
 }

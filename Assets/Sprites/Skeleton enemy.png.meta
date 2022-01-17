@@ -421,12 +421,12 @@ TextureImporter:
       name: attack9
       rect:
         serializedVersion: 2
-        x: 513
+        x: 512
         y: 256
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.47340012, y: 0.43349743}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
