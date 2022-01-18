@@ -7,7 +7,7 @@ public class EnemyMovement : AIManager
     public enum MovementType { Normal }
     [SerializeField] protected MovementType type;
 
-    public enum MovementStates { idle, follow, move};
+    public enum MovementStates { idle, follow, move, hit, dead};
     private MovementStates movementState;
     public MovementStates MovementState { set { movementState = value; } }
 

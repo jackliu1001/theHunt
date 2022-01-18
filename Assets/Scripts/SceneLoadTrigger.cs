@@ -7,7 +7,7 @@ public class SceneLoadTrigger : MonoBehaviour
     [SerializeField] private Transform sceneLoadLocator;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<CharacterController>())
+        if (collision.CompareTag("Player"))
             FindObjectOfType<GameHandler>().LoadSceneTrigger(this);
     }
 

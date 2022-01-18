@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿    using UnityEngine;
 using System.Collections;
 
 public class Sensor_Prototype : MonoBehaviour {
@@ -27,6 +27,7 @@ public class Sensor_Prototype : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other)
     {
         m_ColCount--;
+        m_ColCount = (int)Mathf.Clamp(m_ColCount, 0, float.MaxValue);
     }
 
     void Update()
@@ -37,5 +38,6 @@ public class Sensor_Prototype : MonoBehaviour {
     public void Disable(float duration)
     {
         m_DisableTimer = duration;
+        m_ColCount = 0;
     }
 }

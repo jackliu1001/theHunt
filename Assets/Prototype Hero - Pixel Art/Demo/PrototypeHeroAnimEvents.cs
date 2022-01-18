@@ -29,6 +29,11 @@ public class PrototypeHeroAnimEvents : MonoBehaviour
     // These functions are called inside the animation files
     void AE_resetDodge()
     {
+        if(!m_player.HasHeadRoom && m_player.isGrounded)
+        {
+            m_player.dodgeCrouchLock = true;
+        }
+
         m_player.ResetDodging();
         float dustXOffset = 0.6f;
         float dustYOffset = 0.078125f;

@@ -35,7 +35,6 @@ public class PlayerHealth : HealthController
     {
         if (collision.GetComponent<DamageHandler>())
         {
-            Debug.Log("Damage");
             TakeDamage(collision.GetComponent<DamageHandler>().getDamage());
         }
     }

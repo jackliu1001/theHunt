@@ -33,7 +33,7 @@ public class EnemyHealth : HealthController
     {
         anim.SetTrigger("Death");
         damageCollider.enabled = false;
-        gameObject.layer = LayerMask.NameToLayer("Default");
+        //gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

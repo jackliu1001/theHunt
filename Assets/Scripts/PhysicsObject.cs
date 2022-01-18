@@ -25,8 +25,6 @@ public class PhysicsObject : MonoBehaviour
         {
             return true;
         }
-       
-
         return false;
     }
 
