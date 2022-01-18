@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TakeDamageHandler : MonoBehaviour
 {
-    [SerializeField] HealthController healthController;
+    [SerializeField] PlayerHealth healthController;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.GetComponent<DamageHandler>())

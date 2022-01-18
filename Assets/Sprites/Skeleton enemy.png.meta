@@ -43,34 +43,34 @@ TextureImporter:
     second: attack13
   - first:
       213: 4251906360239513419
-    second: Skeleton enemy_13
+    second: death1
   - first:
       213: 2646334155208643579
-    second: Skeleton enemy_14
+    second: death2
   - first:
       213: -3712685219517249095
-    second: Skeleton enemy_15
+    second: death3
   - first:
       213: -2627258213357970557
-    second: Skeleton enemy_16
+    second: death4
   - first:
       213: 1107983150400447951
-    second: Skeleton enemy_17
+    second: death5
   - first:
       213: -841477135289833387
-    second: Skeleton enemy_18
+    second: death6
   - first:
       213: 5801475551444210642
-    second: Skeleton enemy_22
+    second: death10
   - first:
       213: 2915540044530629201
-    second: Skeleton enemy_23
+    second: death11
   - first:
       213: -2360470341137857836
-    second: Skeleton enemy_24
+    second: death12
   - first:
       213: 1529470679888677018
-    second: Skeleton enemy_25
+    second: death13
   - first:
       213: 7668837336211610510
     second: walk2
@@ -139,13 +139,13 @@ TextureImporter:
     second: hit2
   - first:
       213: 306834143366845967
-    second: Skeleton enemy_19
+    second: death7
   - first:
       213: -6289823522979162965
-    second: Skeleton enemy_20
+    second: death8
   - first:
       213: 8507390889452736926
-    second: Skeleton enemy_21
+    second: death9
   - first:
       213: 3437145983743085951
     second: walk1
@@ -523,14 +523,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_13
+      name: death1
       rect:
         serializedVersion: 2
         x: 0
         y: 192
         width: 64
         height: 64
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -544,14 +544,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_14
+      name: death2
       rect:
         serializedVersion: 2
         x: 64
         y: 192
         width: 64
         height: 64
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -565,14 +565,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_15
+      name: death3
       rect:
         serializedVersion: 2
         x: 128
         y: 192
         width: 64
         height: 64
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -586,14 +586,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_16
+      name: death4
       rect:
         serializedVersion: 2
         x: 192
         y: 192
         width: 64
         height: 64
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -607,14 +607,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_17
+      name: death5
       rect:
         serializedVersion: 2
         x: 256
         y: 192
         width: 64
         height: 64
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -628,14 +628,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_18
+      name: death6
       rect:
         serializedVersion: 2
         x: 320
         y: 192
         width: 64
         height: 64
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -649,14 +649,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_22
+      name: death10
       rect:
         serializedVersion: 2
         x: 576
         y: 192
         width: 64
         height: 64
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -670,14 +670,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_23
+      name: death11
       rect:
         serializedVersion: 2
         x: 640
         y: 192
         width: 64
         height: 64
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -691,14 +691,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_24
+      name: death12
       rect:
         serializedVersion: 2
         x: 704
         y: 192
         width: 64
         height: 64
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -712,14 +712,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_25
+      name: death13
       rect:
         serializedVersion: 2
         x: 768
         y: 192
         width: 64
         height: 64
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1111,14 +1111,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_19
+      name: death7
       rect:
         serializedVersion: 2
         x: 384
         y: 192
         width: 64
         height: 64
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1132,14 +1132,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_20
+      name: death8
       rect:
         serializedVersion: 2
         x: 448
         y: 192
         width: 64
         height: 64
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1153,14 +1153,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_21
+      name: death9
       rect:
         serializedVersion: 2
         x: 512
         y: 192
         width: 64
         height: 64
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []

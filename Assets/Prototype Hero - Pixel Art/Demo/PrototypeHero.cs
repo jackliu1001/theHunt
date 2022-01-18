@@ -11,8 +11,9 @@ public class PrototypeHero : MonoBehaviour {
     public bool       m_noBlood = false;
     public bool       m_hideSword = false;
 
-    private Animator            m_animator;
-    private Rigidbody2D         m_body2d;
+    private PlayerHealth healthController;
+    protected Animator          m_animator;
+    protected Rigidbody2D       m_body2d;
     private SpriteRenderer      m_SR;
     private Sensor_Prototype    m_groundSensor;
     private Sensor_Prototype    m_wallSensorR1;
@@ -41,6 +42,7 @@ public class PrototypeHero : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        healthController = GetComponent<PlayerHealth>();
         m_animator = GetComponentInChildren<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_SR = GetComponentInChildren<SpriteRenderer>();
@@ -184,7 +186,7 @@ public class PrototypeHero : MonoBehaviour {
 
         // -- Handle Animations --
         //Death
-        if (Input.GetKeyDown("e") && !m_dodging)
+        if (healthController.currentHealth <= 0)
         {
             m_animator.SetBool("noBlood", m_noBlood);
             m_animator.SetTrigger("Death");
@@ -192,7 +194,7 @@ public class PrototypeHero : MonoBehaviour {
             DisableWallSensors();
             m_dead = true;
         }
-        
+
         //Hurt
         else if (Input.GetKeyDown("q") && !m_dodging)
         {
@@ -323,18 +325,23 @@ public class PrototypeHero : MonoBehaviour {
         }
 
         //Jump
-        else if (Input.GetButtonDown("Jump") && (m_grounded || m_wallSlide) && !m_dodging && !m_ledgeGrab && !m_ledgeClimb && !m_crouching && m_disableMovementTimer < 0.0f)
+        else if (Input.GetKey(KeyCode.Space) && (m_grounded || m_wallSlide) && !m_dodging && !m_ledgeGrab && !m_ledgeClimb && !m_crouching && m_disableMovementTimer < 0.0f)
         {
             // Check if it's a normal jump or a wall jump
-            if(!m_wallSlide)
-                m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                if (m_body2d.velocity.y > 0)
+                    m_body2d.velocity = new Vector2(m_body2d.velocity.x, 0);
+                else
+                    m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_body2d.velocity.y);
+            }
             else
             {
                 m_body2d.velocity = new Vector2(-m_facingDirection * m_jumpForce / 2.0f, m_jumpForce);
                 m_facingDirection = -m_facingDirection;
                 m_SR.flipX = !m_SR.flipX;
             }
-
+        
             m_animator.SetTrigger("Jump");
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
@@ -435,5 +442,6 @@ public class PrototypeHero : MonoBehaviour {
         transform.position = Vector3.zero;
         m_dead = false;
         m_animator.Rebind();
+        healthController.respawn();
     }
 }

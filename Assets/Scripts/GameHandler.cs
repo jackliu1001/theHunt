@@ -13,17 +13,6 @@ public class GameHandler : MonoBehaviour
         public SceneLoadTrigger trigger;
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void mainMenu()
     {
         loadScene(mainSceneName);

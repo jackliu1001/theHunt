@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4f7c7b623ca5d499509567de27dd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthController: {fileID: 1897657762}
+  healthController: {fileID: 0}
 --- !u!1 &1894328496
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +284,8 @@ GameObject:
   - component: {fileID: 5779919143759674799}
   - component: {fileID: 7853426713638563735}
   - component: {fileID: 7953872935334828980}
-  - component: {fileID: 1897657762}
+  - component: {fileID: 1967628679}
+  - component: {fileID: 2039257916}
   m_Layer: 3
   m_Name: PrototypeHero
   m_TagString: Player
@@ -328,7 +329,7 @@ MonoBehaviour:
   m_walkSpeed: 5
   m_jumpForce: 14
   m_dodgeForce: 13
-  m_parryKnockbackForce: 4
+  m_parryKnockbackForce: 5
   m_noBlood: 0
   m_hideSword: 0
   m_maxSpeed: 7.5
@@ -351,7 +352,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &7953872935334828980
 BoxCollider2D:
@@ -379,7 +380,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1.28125}
   m_EdgeRadius: 0
---- !u!114 &1897657762
+--- !u!114 &1967628679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126507520524490402}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7781ad4c3045ee04a9f0275a5c31d764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  headroomMask:
+    serializedVersion: 2
+    m_Bits: 64
+  horizontalSpeed: 7
+  sprintMultiplier: 1.6
+  crouchMultiplier: 0.8
+  jumpForce: 12
+  dashForce: 0
+  dashCooldown: 0
+  colliderMultiplier: 1
+  isFacingLeft: 0
+  isCrouching: 0
+  isDodging: 0
+--- !u!114 &2039257916
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -388,13 +417,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5126507520524490402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1bdbfc2c5742b748987b37fce372408, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ace0919f9f63434c82dca1352dfdcb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  anim: {fileID: 2575716727761948787}
   currentHealth: 100
-  controller: {fileID: 0}
+  anim: {fileID: 2575716727761948787}
+  damageCollider: {fileID: 472615670}
   healthbar: {fileID: 0}
 --- !u!1 &5291056838949151292
 GameObject:
