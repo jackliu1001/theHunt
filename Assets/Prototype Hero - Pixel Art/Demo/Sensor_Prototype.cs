@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Sensor_Prototype : MonoBehaviour {
 
-    private int m_ColCount = 0;
+    [SerializeField] private int m_ColCount = 0;
 
     private float m_DisableTimer;
 
@@ -27,6 +27,7 @@ public class Sensor_Prototype : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other)
     {
         m_ColCount--;
+        m_ColCount = (int) Mathf.Clamp(m_ColCount, 0, float.MaxValue);
     }
 
     void Update()
@@ -37,5 +38,6 @@ public class Sensor_Prototype : MonoBehaviour {
     public void Disable(float duration)
     {
         m_DisableTimer = duration;
+        m_ColCount = 0;
     }
 }

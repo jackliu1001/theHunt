@@ -4564,11 +4564,93 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &529441029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2039257916, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+  m_PrefabInstance: {fileID: 1897657759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ace0919f9f63434c82dca1352dfdcb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &721389763 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6461005281095188659, guid: 44a4f3d195cf34e42aa6c3b548970629, type: 3}
   m_PrefabInstance: {fileID: 1782128597}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &745270339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 745270340}
+  - component: {fileID: 745270342}
+  - component: {fileID: 745270341}
+  m_Layer: 0
+  m_Name: CrouchHeadSensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &745270340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745270339}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.613, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1897657761}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &745270341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745270339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1e2b6d84e999947b05639de34780d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ColCount: 0
+--- !u!61 &745270342
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745270339}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.07}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4375, y: 0.32}
+  m_EdgeRadius: 0
 --- !u!1 &759530038
 GameObject:
   m_ObjectHideFlags: 0
@@ -5033,7 +5115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4f7c7b623ca5d499509567de27dd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthController: {fileID: 0}
+  healthController: {fileID: 124906155}
 --- !u!61 &1038940047
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12354,6 +12436,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 472615669, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+      propertyPath: healthController
+      value: 
+      objectReference: {fileID: 529441029}
     - target: {fileID: 2039257916, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
       propertyPath: healthbar
       value: 
@@ -12362,6 +12448,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 5779919143759674799, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+      propertyPath: m_headSensor
+      value: 
+      objectReference: {fileID: 745270341}
     - target: {fileID: 7216317338779392757, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
       propertyPath: m_RootOrder
       value: 11

@@ -21,6 +21,7 @@ public class EnemyHealth : HealthController
 
     void hit()
     {
+        Debug.Log("hit()");
         anim.SetTrigger("Hit");
         StartCoroutine(Hit());
     }

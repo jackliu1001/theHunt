@@ -20,14 +20,18 @@ public class PrototypeHero : MonoBehaviour {
     private Sensor_Prototype    m_wallSensorR2;
     private Sensor_Prototype    m_wallSensorL1;
     private Sensor_Prototype    m_wallSensorL2;
-    private bool                m_grounded = false;
+    [SerializeField] private Sensor_Prototype m_headSensor;
+    public bool HasHeadroom { get { return !m_headSensor.State(); } }
+    [SerializeField] private bool                m_grounded = false;
+    public bool Grounded { get {return m_grounded; } set { m_grounded = value; } }
     private bool                m_moving = false;
     private bool                m_dead = false;
-    private bool                m_dodging = false;
+    [SerializeField] private bool                m_dodging = false;
     private bool                m_wallSlide = false;
     private bool                m_ledgeGrab = false;
     private bool                m_ledgeClimb = false;
     private bool                m_crouching = false;
+    public bool DodgeCrouchLock;
     private Vector3             m_climbPosition;
     private int                 m_facingDirection = 1;
     private float               m_disableMovementTimer = 0.0f;
@@ -290,12 +294,15 @@ public class PrototypeHero : MonoBehaviour {
         }
 
         // Dodge
-        else if (Input.GetKeyDown("left shift") && m_grounded && !m_dodging && !m_ledgeGrab && !m_ledgeClimb)
+        else if (Input.GetKeyDown("left shift") && (DodgeCrouchLock || m_grounded && !m_dodging && !m_ledgeGrab && !m_ledgeClimb))
         {
+            Debug.Log("dodge");
             m_dodging = true;
             m_crouching = false;
             m_animator.SetBool("Crouching", false);
             m_animator.SetTrigger("Dodge");
+            m_headSensor.Disable(0);
+            DodgeCrouchLock = false;
             m_body2d.velocity = new Vector2(m_facingDirection * m_dodgeForce, m_body2d.velocity.y);
         }
 
@@ -349,8 +356,9 @@ public class PrototypeHero : MonoBehaviour {
         }
 
         //Crouch / Stand up
-        else if (Input.GetKeyDown("s") && m_grounded && !m_dodging && !m_ledgeGrab && !m_ledgeClimb && m_parryTimer < 0.0f)
+        else if (DodgeCrouchLock || Input.GetKeyDown("s") && m_grounded && !m_dodging && !m_ledgeGrab && !m_ledgeClimb && m_parryTimer < 0.0f)
         {
+            //if (DodgeCrouchLock) m_grounded = true;
             m_crouching = true;
             m_animator.SetBool("Crouching", true);
             m_body2d.velocity = new Vector2(m_body2d.velocity.x / 2.0f, m_body2d.velocity.y);
