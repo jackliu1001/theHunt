@@ -18,6 +18,7 @@ public class EnemyMovement : AIManager
     [SerializeField] protected bool avoidFalling;
     [SerializeField] protected float maxSpeed;
     [SerializeField] LayerMask collidersToTurn;
+    public SpriteRenderer spriteRenderer;
 
     private bool spawning = true;
     private int direction;
@@ -52,6 +53,12 @@ public class EnemyMovement : AIManager
                 break;
             case MovementStates.idle:
                 idle();
+                break;
+            case MovementStates.hit:
+                hit();
+                break;
+            case MovementStates.dead:
+                dead();
                 break;
         }
         
@@ -104,6 +111,30 @@ public class EnemyMovement : AIManager
         }
         movement();
     }
+
+    private void hit()
+    {
+
+    }
+
+    public void hitStart()
+    {
+        currentSpeed = 0;
+        acceleration = 0;
+        movementState = MovementStates.hit;
+    }
+
+    private void dead()
+    {
+        //this.gameObject.SetActive(false);
+
+    }
+
+    public void deadStart()
+    {
+        movementState = MovementStates.dead;
+    }
+
 
     void changeDirection()
     {

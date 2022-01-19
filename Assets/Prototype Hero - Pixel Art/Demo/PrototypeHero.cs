@@ -41,11 +41,14 @@ public class PrototypeHero : MonoBehaviour {
     private int m_currentAttack = 0;
     private float m_timeSinceAttack = 0.0f;
     private float m_gravity;
+    private Vector2 facingLeft;
+    [HideInInspector] public bool isFacingLeft;
     public float m_maxSpeed = 4.5f;
 
     // Use this for initialization
     void Start()
     {
+        facingLeft = new Vector2(-transform.localScale.x, transform.localScale.y);
         healthController = GetComponent<PlayerHealth>();
         m_animator = GetComponentInChildren<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
@@ -110,18 +113,21 @@ public class PrototypeHero : MonoBehaviour {
         else
             m_moving = false;
 
-        // Swap direction of sprite depending on move direction
-        if (inputRaw > 0 && !m_dodging && !m_wallSlide && !m_ledgeGrab && !m_ledgeClimb)
-        {
-            m_SR.flipX = false;
-            m_facingDirection = 1;
-        }
+        checkDirection();
 
-        else if (inputRaw < 0 && !m_dodging && !m_wallSlide && !m_ledgeGrab && !m_ledgeClimb)
-        {
-            m_SR.flipX = true;
-            m_facingDirection = -1;
-        }
+        // Swap direction of sprite depending on move direction
+        //if (inputRaw > 0 && !m_dodging && !m_wallSlide && !m_ledgeGrab && !m_ledgeClimb)
+        //{
+        //    m_SR.flipX = false;
+        //    m_facingDirection = 1;
+        //}
+        //else if (inputRaw < 0 && !m_dodging && !m_wallSlide && !m_ledgeGrab && !m_ledgeClimb)
+        //{
+        //    m_SR.flipX = true;
+        //    m_facingDirection = -1;
+        //}
+
+        //checkDirection();
 
         // SlowDownSpeed helps decelerate the characters when stopping
         float SlowDownSpeed = m_moving ? 1.0f : 0.5f;
@@ -343,9 +349,9 @@ public class PrototypeHero : MonoBehaviour {
             }
             else
             {
-                m_body2d.velocity = new Vector2(-m_facingDirection * m_jumpForce / 2.0f, m_jumpForce);
-                m_facingDirection = -m_facingDirection;
-                m_SR.flipX = !m_SR.flipX;
+                m_body2d.velocity = new Vector2(m_facingDirection * m_jumpForce / 2.0f, m_jumpForce);
+                //m_facingDirection = -m_facingDirection;
+                //m_SR.flipX = !m_SR.flipX;
             }
 
             m_animator.SetTrigger("Jump");
@@ -451,5 +457,30 @@ public class PrototypeHero : MonoBehaviour {
         m_dead = false;
         m_animator.Rebind();
         healthController.respawn();
+    }
+
+    protected void checkDirection()
+    {
+        if (m_body2d.velocity.x > 0 && !m_dodging && !m_wallSlide && !m_ledgeGrab && !m_ledgeClimb && isFacingLeft)
+        {
+            isFacingLeft = false;
+            m_SR.flipX = false;
+            flip();
+        }
+        if (m_body2d.velocity.x < 0 && !m_dodging && !m_wallSlide && !m_ledgeGrab && !m_ledgeClimb && !isFacingLeft)
+        {
+            isFacingLeft = true;
+            m_SR.flipX = true;
+            flip();
+        }
+    }
+
+    void flip()
+    {
+        if (isFacingLeft)
+            transform.localScale = facingLeft;
+        else
+            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : HealthController
 {
     [SerializeField] protected bool isInterruptable;
+    [SerializeField] public BoxCollider2D takeDamageCollider;
     // Start is called before the first frame update
     private void Update()
     {
@@ -32,8 +33,9 @@ public class EnemyHealth : HealthController
     private void death()
     {
         anim.SetTrigger("Death");
-        damageCollider.enabled = false;
-        //gameObject.layer = LayerMask.NameToLayer("Default");
+        //damageCollider.enabled = false;
+        takeDamageCollider.enabled = false;
+        this.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,4 +45,5 @@ public class EnemyHealth : HealthController
             TakeDamage(collision.GetComponent<DamageHandler>().getDamage());
         }
     }
+
 }

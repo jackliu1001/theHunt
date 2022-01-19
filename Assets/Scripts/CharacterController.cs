@@ -147,9 +147,4 @@ public class CharacterController : PhysicsObject
             
         }
     }
-
-    public void takeDamage()
-    {
-
-    }
 }

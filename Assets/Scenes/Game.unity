@@ -190,6 +190,11 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 8797547188309481028, guid: 712ab743f83cbec41b2d1c891c108bbc, type: 3}
   m_PrefabInstance: {fileID: 8797547186990970708}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &124906153 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8797547188309481029, guid: 712ab743f83cbec41b2d1c891c108bbc, type: 3}
+  m_PrefabInstance: {fileID: 8797547186990970708}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &124906154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8797547188309481030, guid: 712ab743f83cbec41b2d1c891c108bbc, type: 3}
@@ -210,8 +215,9 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   anim: {fileID: 124906148}
-  damageCollider: {fileID: 1038940047}
+  damageCollider: {fileID: 1078996950}
   isInterruptable: 1
+  takeDamageCollider: {fileID: 1038940047}
 --- !u!1001 &132137011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5096,7 +5102,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1038940045}
   - component: {fileID: 1038940047}
-  - component: {fileID: 1038940046}
   m_Layer: 12
   m_Name: TakeDamage
   m_TagString: Untagged
@@ -5118,19 +5123,6 @@ Transform:
   m_Father: {fileID: 124906154}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1038940046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038940044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f4f7c7b623ca5d499509567de27dd87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthController: {fileID: 124906155}
 --- !u!61 &1038940047
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12483,6 +12475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1967628679, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+    - {fileID: 472615669, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
 --- !u!4 &1897657761 stripped
 Transform:
@@ -12875,6 +12868,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8797547188309481049, guid: 712ab743f83cbec41b2d1c891c108bbc, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 124906153}
     - target: {fileID: 8797547188309481050, guid: 712ab743f83cbec41b2d1c891c108bbc, type: 3}
       propertyPath: rb
       value: 

@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIEnemyIdle : StateMachineBehaviour
+public class AIEnemyHit : StateMachineBehaviour
 {
     [SerializeField] private EnemyMovement enemyMovement;
-    [SerializeField] private float idleTime = 2;
+    [SerializeField] private float idleTime = 1;
     private float idleStartTime;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemyMovement = animator.gameObject.GetComponent<EnemyMovement>();
-        enemyMovement.idleStart();
+        enemyMovement.hitStart();
         idleStartTime = Time.time;
     }
 
