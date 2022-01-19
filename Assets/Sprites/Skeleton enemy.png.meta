@@ -733,7 +733,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_27
+      name: walk2
       rect:
         serializedVersion: 2
         x: 64
@@ -754,7 +754,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_28
+      name: walk3
       rect:
         serializedVersion: 2
         x: 128
@@ -775,7 +775,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_29
+      name: walk4
       rect:
         serializedVersion: 2
         x: 192
@@ -796,7 +796,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_30
+      name: walk5
       rect:
         serializedVersion: 2
         x: 256
@@ -817,7 +817,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_31
+      name: walk6
       rect:
         serializedVersion: 2
         x: 320
@@ -838,7 +838,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_32
+      name: walk7
       rect:
         serializedVersion: 2
         x: 384
@@ -859,7 +859,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_33
+      name: walk8
       rect:
         serializedVersion: 2
         x: 448
@@ -880,7 +880,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_34
+      name: walk9
       rect:
         serializedVersion: 2
         x: 512
@@ -901,7 +901,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_35
+      name: walk10
       rect:
         serializedVersion: 2
         x: 576
@@ -922,7 +922,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_36
+      name: walk11
       rect:
         serializedVersion: 2
         x: 640
@@ -943,7 +943,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_37
+      name: walk12
       rect:
         serializedVersion: 2
         x: 704
@@ -1174,7 +1174,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton enemy_26
+      name: walk1
       rect:
         serializedVersion: 2
         x: 0

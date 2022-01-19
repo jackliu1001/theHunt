@@ -45,6 +45,10 @@ public class PrototypeHero : MonoBehaviour {
     [HideInInspector] public bool isFacingLeft;
     public float m_maxSpeed = 4.5f;
 
+    [SerializeField] bool canLedgeClimb;
+    [SerializeField] bool canDodge;
+    [SerializeField] bool canFallAttack;
+
     // Use this for initialization
     void Start()
     {
@@ -113,7 +117,7 @@ public class PrototypeHero : MonoBehaviour {
         else
             m_moving = false;
 
-        checkDirection();
+        checkDirection(inputRaw);
 
         // Swap direction of sprite depending on move direction
         //if (inputRaw > 0 && !m_dodging && !m_wallSlide && !m_ledgeGrab && !m_ledgeClimb)
@@ -126,8 +130,6 @@ public class PrototypeHero : MonoBehaviour {
         //    m_SR.flipX = true;
         //    m_facingDirection = -1;
         //}
-
-        //checkDirection();
 
         // SlowDownSpeed helps decelerate the characters when stopping
         float SlowDownSpeed = m_moving ? 1.0f : 0.5f;
@@ -161,7 +163,7 @@ public class PrototypeHero : MonoBehaviour {
             //Grab Ledge
             // True if either bottom right sensor is colliding and top right sensor is not colliding 
             // OR if bottom left sensor is colliding and top left sensor is not colliding 
-            bool shouldGrab = !m_ledgeClimb && !m_ledgeGrab && ((m_wallSensorR1.State() && !m_wallSensorR2.State()) || (m_wallSensorL1.State() && !m_wallSensorL2.State()));
+            bool shouldGrab = canLedgeClimb && !m_ledgeClimb && !m_ledgeGrab && ((m_wallSensorR1.State() && !m_wallSensorR2.State()) || (m_wallSensorL1.State() && !m_wallSensorL2.State()));
             if (shouldGrab)
             {
                 Vector3 rayStart;
@@ -256,7 +258,8 @@ public class PrototypeHero : MonoBehaviour {
 
             // Loop back to one after second attack
             if (m_currentAttack > 2)
-                m_currentAttack = 1;
+                if (m_currentAttack > 2)
+                    m_currentAttack = 1;
 
             // Reset Attack combo if time since last attack is too large
             if (m_timeSinceAttack > 1.0f)
@@ -270,7 +273,7 @@ public class PrototypeHero : MonoBehaviour {
         }
 
         //Air Slam Attack
-        else if (Input.GetMouseButtonDown(0) && Input.GetKey("s") && !m_ledgeGrab && !m_ledgeClimb && !m_grounded)
+        else if (canFallAttack && Input.GetMouseButtonDown(0) && Input.GetKey("s") && !m_ledgeGrab && !m_ledgeClimb && !m_grounded)
         {
             m_animator.SetTrigger("AttackAirSlam");
             m_body2d.velocity = new Vector2(0.0f, -m_jumpForce);
@@ -300,7 +303,7 @@ public class PrototypeHero : MonoBehaviour {
         }
 
         // Dodge
-        else if (Input.GetKeyDown("left shift") && (dodgeCrouchLock || m_grounded && !m_dodging && !m_ledgeGrab && !m_ledgeClimb))
+        else if (canDodge && Input.GetKeyDown("left shift") && (dodgeCrouchLock || m_grounded && !m_dodging && !m_ledgeGrab && !m_ledgeClimb))
         {
             m_dodging = true;
             m_crouching = false;
@@ -337,27 +340,24 @@ public class PrototypeHero : MonoBehaviour {
         }
 
         //Jump
-        else if (Input.GetKey(KeyCode.Space) && (m_grounded || m_wallSlide) && !m_dodging && !m_ledgeGrab && !m_ledgeClimb && !m_crouching && m_disableMovementTimer < 0.0f)
+        else if (Input.GetKeyDown(KeyCode.Space) && (m_grounded || m_wallSlide) && !m_dodging && !m_ledgeGrab && !m_ledgeClimb && !m_crouching && m_disableMovementTimer < 0.0f)
         {
             // Check if it's a normal jump or a wall jump
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                if (m_body2d.velocity.y > 0)
-                    m_body2d.velocity = new Vector2(m_body2d.velocity.x, 0);
-                else
-                    m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_body2d.velocity.y);
-            }
-            else
-            {
-                m_body2d.velocity = new Vector2(m_facingDirection * m_jumpForce / 2.0f, m_jumpForce);
-                //m_facingDirection = -m_facingDirection;
-                //m_SR.flipX = !m_SR.flipX;
-            }
-
+            m_body2d.velocity = new Vector2(m_facingDirection * m_jumpForce / 2.0f, m_jumpForce);
+            //m_facingDirection = -m_facingDirection;
+            //m_SR.flipX = !m_SR.flipX;
             m_animator.SetTrigger("Jump");
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
             m_groundSensor.Disable(0.2f);
+        }
+
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            if (m_body2d.velocity.y > 0)
+                m_body2d.velocity = new Vector2(m_body2d.velocity.x, 0);
+            else
+                m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_body2d.velocity.y);
         }
 
         //Crouch / Stand up
@@ -459,28 +459,30 @@ public class PrototypeHero : MonoBehaviour {
         healthController.respawn();
     }
 
-    protected void checkDirection()
+    protected void checkDirection(float inputRaw)
     {
-        if (m_body2d.velocity.x > 0 && !m_dodging && !m_wallSlide && !m_ledgeGrab && !m_ledgeClimb && isFacingLeft)
+        if (inputRaw > 0 && !m_dodging && !m_wallSlide && !m_ledgeGrab && !m_ledgeClimb && isFacingLeft)
         {
             isFacingLeft = false;
-            m_SR.flipX = false;
+            //m_SR.flipX = false;
+            m_facingDirection = 1;
             flip();
         }
-        if (m_body2d.velocity.x < 0 && !m_dodging && !m_wallSlide && !m_ledgeGrab && !m_ledgeClimb && !isFacingLeft)
+        if (inputRaw < 0 && !m_dodging && !m_wallSlide && !m_ledgeGrab && !m_ledgeClimb && !isFacingLeft)
         {
             isFacingLeft = true;
-            m_SR.flipX = true;
+            //.flipX = true;
+            m_facingDirection = -1;
             flip();
         }
     }
 
     void flip()
     {
-        if (isFacingLeft)
-            transform.localScale = facingLeft;
-        else
-            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
-
+        transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+        m_wallSensorR1.transform.localPosition = new Vector2(-m_wallSensorR1.transform.localPosition.x, m_wallSensorR1.transform.localPosition.y);
+        m_wallSensorR2.transform.localPosition = new Vector2(-m_wallSensorR2.transform.localPosition.x, m_wallSensorR2.transform.localPosition.y);
+        m_wallSensorL1.transform.localPosition = new Vector2(-m_wallSensorL1.transform.localPosition.x, m_wallSensorL1.transform.localPosition.y);
+        m_wallSensorL2.transform.localPosition = new Vector2(-m_wallSensorL2.transform.localPosition.x, m_wallSensorL2.transform.localPosition.y);
     }
 }

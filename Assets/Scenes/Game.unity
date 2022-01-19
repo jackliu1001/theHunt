@@ -218,6 +218,29 @@ MonoBehaviour:
   damageCollider: {fileID: 1078996950}
   isInterruptable: 1
   takeDamageCollider: {fileID: 1038940047}
+--- !u!114 &124906156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124906147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a129f3b331ea5ad44807734bbcb0d0a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  facingLeft: 0
+  timeTillMaxSpeed: 1
+  spawnFacingLeft: 0
+  turnAroundOnCollision: 1
+  avoidFalling: 0
+  maxSpeed: 3
+  collidersToTurn:
+    serializedVersion: 2
+    m_Bits: 128
+  spriteRenderer: {fileID: 124906153}
 --- !u!1001 &132137011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4575,7 +4598,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 6.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5391,17 +5414,6 @@ Transform:
   m_Father: {fileID: 1352536803}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1174286794 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2039257916, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
-  m_PrefabInstance: {fileID: 1897657759}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ace0919f9f63434c82dca1352dfdcb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1205377500
 GameObject:
   m_ObjectHideFlags: 0
@@ -6070,76 +6082,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387706763}
   m_CullTransparentMesh: 1
---- !u!1 &1538328613
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1538328614}
-  - component: {fileID: 1538328616}
-  - component: {fileID: 1538328615}
-  m_Layer: 0
-  m_Name: HeadSensor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1538328614
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538328613}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.61, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1897657761}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1538328615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538328613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba1e2b6d84e999947b05639de34780d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1538328616
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538328613}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.07}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.4375, y: 0.32}
-  m_EdgeRadius: 0
 --- !u!1 &1572696719
 GameObject:
   m_ObjectHideFlags: 0
@@ -12413,10 +12355,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 472615669, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
-      propertyPath: healthController
-      value: 
-      objectReference: {fileID: 1174286794}
     - target: {fileID: 2039257916, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
       propertyPath: healthbar
       value: 
@@ -12426,9 +12364,13 @@ PrefabInstance:
       value: Hero
       objectReference: {fileID: 0}
     - target: {fileID: 5779919143759674799, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
-      propertyPath: headRoomSensor
-      value: 
-      objectReference: {fileID: 1538328615}
+      propertyPath: canDodge
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779919143759674799, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+      propertyPath: canLedgeClimb
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7216317338779392757, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -12473,9 +12415,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1967628679, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
-    - {fileID: 472615669, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+    - target: {fileID: 7463237975426559972, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075544260384689556, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
 --- !u!4 &1897657761 stripped
 Transform:
@@ -12869,6 +12817,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8797547188309481049, guid: 712ab743f83cbec41b2d1c891c108bbc, type: 3}
+      propertyPath: maxSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8797547188309481049, guid: 712ab743f83cbec41b2d1c891c108bbc, type: 3}
+      propertyPath: avoidFalling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8797547188309481049, guid: 712ab743f83cbec41b2d1c891c108bbc, type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 124906153}
@@ -12908,5 +12864,6 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.newSize.y
       value: 1.3333334
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8797547188309481049, guid: 712ab743f83cbec41b2d1c891c108bbc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 712ab743f83cbec41b2d1c891c108bbc, type: 3}

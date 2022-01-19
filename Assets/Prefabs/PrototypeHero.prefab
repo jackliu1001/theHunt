@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 472615668}
   - component: {fileID: 472615670}
-  - component: {fileID: 472615669}
   m_Layer: 10
   m_Name: TakeDamage
   m_TagString: Untagged
@@ -58,19 +57,76 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.130502, y: 2.690657}
   m_EdgeRadius: 0
---- !u!114 &472615669
+--- !u!1 &1538328613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538328614}
+  - component: {fileID: 1538328616}
+  - component: {fileID: 1538328615}
+  m_Layer: 0
+  m_Name: HeadSensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1538328614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538328613}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.61, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7216317338779392757}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1538328616
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538328613}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.07}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4375, y: 0.32}
+  m_EdgeRadius: 0
+--- !u!114 &1538328615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472615667}
+  m_GameObject: {fileID: 1538328613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f4f7c7b623ca5d499509567de27dd87, type: 3}
+  m_Script: {fileID: 11500000, guid: ba1e2b6d84e999947b05639de34780d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthController: {fileID: 0}
 --- !u!1 &1894328496
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +340,6 @@ GameObject:
   - component: {fileID: 5779919143759674799}
   - component: {fileID: 7853426713638563735}
   - component: {fileID: 7953872935334828980}
-  - component: {fileID: 1967628679}
   - component: {fileID: 2039257916}
   m_Layer: 3
   m_Name: PrototypeHero
@@ -310,6 +365,7 @@ Transform:
   - {fileID: 7234416123028626362}
   - {fileID: 2000575655945704494}
   - {fileID: 6602637651529097269}
+  - {fileID: 1538328614}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -332,6 +388,10 @@ MonoBehaviour:
   m_parryKnockbackForce: 5
   m_noBlood: 0
   m_hideSword: 0
+  headRoomSensor: {fileID: 1538328615}
+  m_dodging: 0
+  dodgeCrouchLock: 0
+  isFacingLeft: 0
   m_maxSpeed: 7.5
 --- !u!50 &7853426713638563735
 Rigidbody2D:
@@ -380,34 +440,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1.28125}
   m_EdgeRadius: 0
---- !u!114 &1967628679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5126507520524490402}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7781ad4c3045ee04a9f0275a5c31d764, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
-  headroomMask:
-    serializedVersion: 2
-    m_Bits: 64
-  horizontalSpeed: 7
-  sprintMultiplier: 1.6
-  crouchMultiplier: 0.8
-  jumpForce: 12
-  dashForce: 0
-  dashCooldown: 0
-  colliderMultiplier: 1
-  isFacingLeft: 0
-  isCrouching: 0
-  isDodging: 0
 --- !u!114 &2039257916
 MonoBehaviour:
   m_ObjectHideFlags: 0

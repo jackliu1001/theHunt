@@ -33,7 +33,7 @@ public class EnemyHealth : HealthController
     private void death()
     {
         anim.SetTrigger("Death");
-        //damageCollider.enabled = false;
+        damageCollider.enabled = false;
         takeDamageCollider.enabled = false;
         this.enabled = false;
     }
