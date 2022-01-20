@@ -393,6 +393,9 @@ MonoBehaviour:
   dodgeCrouchLock: 0
   isFacingLeft: 0
   m_maxSpeed: 7.5
+  canLedgeClimb: 0
+  canDodge: 1
+  canFallAttack: 0
 --- !u!50 &7853426713638563735
 Rigidbody2D:
   serializedVersion: 4
