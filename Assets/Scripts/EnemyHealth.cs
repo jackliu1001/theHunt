@@ -45,5 +45,4 @@ public class EnemyHealth : HealthController
             TakeDamage(collision.GetComponent<DamageHandler>().getDamage());
         }
     }
-
 }

@@ -15,13 +15,13 @@ public class PrototypeHeroAnimEvents : MonoBehaviour
     public GameObject           m_AirSlamDust;
     public GameObject           m_ParryEffect;
 
-    private PrototypeHero       m_player;
+    private HeroController       m_player;
     private AudioManager_PrototypeHero m_audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_player = GetComponentInParent<PrototypeHero>();
+        m_player = GetComponentInParent<HeroController>();
         m_audioManager = AudioManager_PrototypeHero.instance;
     }
 

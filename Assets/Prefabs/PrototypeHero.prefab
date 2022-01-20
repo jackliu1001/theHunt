@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 472615668}
   - component: {fileID: 472615670}
+  - component: {fileID: 1658140678}
   m_Layer: 10
   m_Name: TakeDamage
   m_TagString: Untagged
@@ -57,6 +58,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.130502, y: 2.690657}
   m_EdgeRadius: 0
+--- !u!114 &1658140678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472615667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4f7c7b623ca5d499509567de27dd87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthController: {fileID: 2039257916}
 --- !u!1 &1538328613
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,10 +351,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7216317338779392757}
-  - component: {fileID: 5779919143759674799}
   - component: {fileID: 7853426713638563735}
   - component: {fileID: 7953872935334828980}
   - component: {fileID: 2039257916}
+  - component: {fileID: 2128998761}
   m_Layer: 3
   m_Name: PrototypeHero
   m_TagString: Player
@@ -369,33 +383,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5779919143759674799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5126507520524490402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a60f39d280f172e44ab73cb24a06b940, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_runSpeed: 8
-  m_walkSpeed: 5
-  m_jumpForce: 14
-  m_dodgeForce: 13
-  m_parryKnockbackForce: 5
-  m_noBlood: 0
-  m_hideSword: 0
-  headRoomSensor: {fileID: 1538328615}
-  m_dodging: 0
-  dodgeCrouchLock: 0
-  isFacingLeft: 0
-  m_maxSpeed: 7.5
-  canLedgeClimb: 1
-  canDodge: 1
-  canFallAttack: 0
 --- !u!50 &7853426713638563735
 Rigidbody2D:
   serializedVersion: 4
@@ -460,6 +447,30 @@ MonoBehaviour:
   anim: {fileID: 2575716727761948787}
   damageCollider: {fileID: 472615670}
   healthbar: {fileID: 0}
+--- !u!114 &2128998761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126507520524490402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3bead11d3c1554381457f60e0d504f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_runSpeed: 8
+  m_walkSpeed: 5
+  m_jumpForce: 14
+  m_dodgeForce: 13
+  m_parryKnockbackForce: 5
+  m_noBlood: 0
+  m_hideSword: 0
+  headRoomSensor: {fileID: 1538328615}
+  m_dodging: 0
+  dodgeCrouchLock: 0
+  isFacingLeft: 0
+  m_maxSpeed: 7.5
 --- !u!1 &5291056838949151292
 GameObject:
   m_ObjectHideFlags: 0

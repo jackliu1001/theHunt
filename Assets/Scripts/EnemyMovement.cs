@@ -7,7 +7,7 @@ public abstract class EnemyMovement : AIManager
     public enum MovementType { Normal }
     [SerializeField] protected MovementType type;
 
-    public enum MovementStates { idle, follow, move, hit, dead};
+    public enum MovementStates { idle, follow, move, hit, dead, attack};
     protected MovementStates movementState;
     public MovementStates MovementState { set { movementState = value; } }
 
@@ -55,6 +55,9 @@ public abstract class EnemyMovement : AIManager
             case MovementStates.dead:
                 dead();
                 break;
+            case MovementStates.attack:
+                attack();
+                break;
         }
         
     }
@@ -69,6 +72,8 @@ public abstract class EnemyMovement : AIManager
     protected abstract void dead();
     public abstract void deadStart();
     protected abstract void movement();
+    protected abstract void attack();
+    public abstract void attackStart();
     protected virtual void Spawning()
     {
         spawning = false;

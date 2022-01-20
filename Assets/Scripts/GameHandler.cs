@@ -6,6 +6,7 @@ public class GameHandler : MonoBehaviour
 {
     [SerializeField] private string mainSceneName = "MainMenu";
     [SerializeField] private SceneTriggers[] sceneTriggers;
+    public Inventory playerInventory;
     [System.Serializable] public struct SceneTriggers
     {
         public string sceneName;
@@ -50,5 +51,10 @@ public class GameHandler : MonoBehaviour
         }
         else
             return sceneTriggers[index].trigger;
+    }
+
+    public void respawnPlayer()
+    {
+        FindObjectOfType<SceneLoadHandler>().loadPlayer();
     }
 }

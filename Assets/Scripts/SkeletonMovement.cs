@@ -60,12 +60,12 @@ public class SkeletonMovement : EnemyMovement
     override protected void hit()
     {
         rb.velocity = new Vector2(0, rb.velocity.y);
+        currentSpeed = 0;
+        acceleration = 0;
     }
 
     override public void hitStart()
     {
-        currentSpeed = 0;
-        acceleration = 0;
         movementState = MovementStates.hit;
     }
 
@@ -81,13 +81,22 @@ public class SkeletonMovement : EnemyMovement
 
     override protected void movement()
     {
-
         acceleration = maxSpeed / timeTillMaxSpeed;
         runTime += Time.deltaTime;
         currentSpeed = Mathf.Clamp(acceleration * direction * runTime, -maxSpeed, maxSpeed);
         distance += Mathf.Abs(currentSpeed * Time.deltaTime);
-
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
+    }
+
+    override protected void attack()
+    {
+
+    }
+
+    override public void attackStart()
+    {
+        movementState = MovementStates.attack;
+        rb.velocity = Vector2.zero;
     }
 
     void changeDirection()

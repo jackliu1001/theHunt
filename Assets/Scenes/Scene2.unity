@@ -6278,6 +6278,7 @@ MonoBehaviour:
   - sceneName: stringstar field
     targetTriggerIndex: 3
     trigger: {fileID: 1333569921}
+  playerInventory: {fileID: 11400000, guid: ad7967cc98311f64cbb0de01da618f2f, type: 2}
 --- !u!4 &1646730703
 Transform:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class SceneLoadHandler : SceneHandler
         loadPlayer();
     }
 
-    private void loadPlayer()
+    public void loadPlayer()
     {
         Transform player;
         if (GameObject.FindGameObjectWithTag("Player"))
