@@ -24,4 +24,9 @@ public class SceneLoadHandler : SceneHandler
 
     FindObjectOfType<GameHandler>().GetSceneLoadTrigger(TargetTrigger).LoadObject(player);
     }
+
+    public void LoadPlayer()
+    {
+        loadPlayer();
+    }
 }

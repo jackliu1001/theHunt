@@ -2082,6 +2082,7 @@ MonoBehaviour:
   - sceneName: Scene2
     targetTriggerIndex: 2
     trigger: {fileID: 1717539148}
+  PlayerInventory: {fileID: 11400000, guid: b2e6600c82f13c840b43a9c24af4be17, type: 2}
 --- !u!4 &847903475
 Transform:
   m_ObjectHideFlags: 0

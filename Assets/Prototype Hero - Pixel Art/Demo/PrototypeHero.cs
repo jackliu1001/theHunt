@@ -45,9 +45,12 @@ public class PrototypeHero : MonoBehaviour {
     [HideInInspector] public bool isFacingLeft;
     public float m_maxSpeed = 4.5f;
 
-    [SerializeField] bool canLedgeClimb;
-    [SerializeField] bool canDodge;
-    [SerializeField] bool canFallAttack;
+    bool canLedgeClimb { get { return FindObjectOfType<GameHandler>().PlayerInventory.CanLedgeClimb(); } }
+    bool canDodge { get { return FindObjectOfType<GameHandler>().PlayerInventory.CanDodge(); } }
+    bool canFallAttack { get { return FindObjectOfType<GameHandler>().PlayerInventory.CanFallAttack(); } }
+
+
+
 
     // Use this for initialization
     void Start()
@@ -151,7 +154,7 @@ public class PrototypeHero : MonoBehaviour {
             //Wall Slide
             // True if either both right sensors are colliding and character is facing right
             // OR if both left sensors are colliding and character is facing left
-            m_wallSlide = (m_wallSensorR1.State() && m_wallSensorR2.State() && m_facingDirection == 1) || (m_wallSensorL1.State() && m_wallSensorL2.State() && m_facingDirection == -1);
+            m_wallSlide = false; // (m_wallSensorR1.State() && m_wallSensorR2.State() && m_facingDirection == 1) || (m_wallSensorL1.State() && m_wallSensorL2.State() && m_facingDirection == -1);
             if (m_grounded)
                 m_wallSlide = false;
             m_animator.SetBool("WallSlide", m_wallSlide);
@@ -453,10 +456,11 @@ public class PrototypeHero : MonoBehaviour {
 
     void RespawnHero()
     {
-        transform.position = Vector3.zero;
+        //transform.position = Vector3.zero;
         m_dead = false;
         m_animator.Rebind();
         healthController.respawn();
+        FindObjectOfType<GameHandler>().RespawnPlayer();
     }
 
     protected void checkDirection(float inputRaw)

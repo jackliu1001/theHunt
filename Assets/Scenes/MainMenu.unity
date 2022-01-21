@@ -646,6 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSceneName: Game
+  inventory: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -716,6 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSceneName: Game
+  inventory: {fileID: 0}
 --- !u!1 &825369294
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSceneName: Game
+  inventory: {fileID: 11400000, guid: b2e6600c82f13c840b43a9c24af4be17, type: 2}
 --- !u!4 &825369296
 Transform:
   m_ObjectHideFlags: 0
@@ -2041,7 +2044,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 825369295}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: gameLoad
+        m_MethodName: NewGameButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

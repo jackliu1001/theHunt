@@ -5,7 +5,12 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private string gameSceneName = "Game";
-
+    [SerializeField] private Inventory inventory;
+    public void NewGameButton()
+    {
+        inventory.ClearInventory();
+        gameLoad();
+    }
     public void gameLoad()
     {
         SceneHandler.loadScene("Game");

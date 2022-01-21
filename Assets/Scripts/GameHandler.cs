@@ -6,6 +6,7 @@ public class GameHandler : MonoBehaviour
 {
     [SerializeField] private string mainSceneName = "MainMenu";
     [SerializeField] private SceneTriggers[] sceneTriggers;
+    public Inventory PlayerInventory;
     [System.Serializable] public struct SceneTriggers
     {
         public string sceneName;
@@ -39,6 +40,11 @@ public class GameHandler : MonoBehaviour
         }
         //if not in list, load main menu
         if (!triggerFound) loadScene(mainSceneName);
+    }
+
+    public void RespawnPlayer()
+    {
+        FindObjectOfType<SceneLoadHandler>().LoadPlayer();
     }
 
     public SceneLoadTrigger GetSceneLoadTrigger(int index)
