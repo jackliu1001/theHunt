@@ -88,6 +88,9 @@ public class HeroController : MonoBehaviour {
         if (m_dead)
             return;
 
+        if (m_body2d.position.y < -20)
+            m_dead = true;
+
         //Check if character just landed on the ground
         if (!m_grounded && m_groundSensor.State())
         {

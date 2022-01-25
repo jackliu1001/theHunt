@@ -9,6 +9,10 @@ public class SkeletonMovement : EnemyMovement
     private float runTime;
     protected float currentSpeed;
     private bool waiting;
+
+    [SerializeField] private Collider2D leftToe, rightToe;
+    [SerializeField] private LayerMask toeCollidertoTurn;
+
     override public void idleStart()
     {
         movementState = MovementStates.idle;
@@ -42,7 +46,7 @@ public class SkeletonMovement : EnemyMovement
         if (!facingLeft)
         {
             direction = 1;
-            if (CollisionCheck(Vector2.right, 0.5f, collidersToTurn) && turnAroundOnCollision && !spawning)
+            if ((CollisionCheck(Vector2.right, 0.5f, collidersToTurn) && turnAroundOnCollision || !CollisionCheck(rightToe, Vector2.down, 0.1f, toeCollidertoTurn)) && !spawning)
             {
                 changeDirection();
             }
@@ -50,7 +54,7 @@ public class SkeletonMovement : EnemyMovement
         else
         {
             direction = -1;
-            if (CollisionCheck(Vector2.left, 0.5f, collidersToTurn) && turnAroundOnCollision && !spawning)
+            if ((CollisionCheck(Vector2.left, 0.5f, collidersToTurn) && turnAroundOnCollision || !CollisionCheck(rightToe, Vector2.down, 0.1f, toeCollidertoTurn)) && !spawning)
             {
                 changeDirection();
             }
