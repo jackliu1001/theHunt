@@ -365,7 +365,7 @@ public class HeroController : MonoBehaviour {
         }
 
         //Crouch / Stand up
-        else if (dodgeCrouchLock || Input.GetKeyDown("s") && m_grounded && !m_dodging && !m_ledgeGrab && !m_ledgeClimb && m_parryTimer < 0.0f)
+        else if (dodgeCrouchLock || Input.GetKeyDown("s") && m_grounded && !m_dodging && !m_ledgeGrab && !m_ledgeClimb && m_parryTimer < 0.0f && Mathf.Abs(m_body2d.velocity.y) <= 0)
         {
             if (dodgeCrouchLock)
                 m_grounded = true;
@@ -373,7 +373,7 @@ public class HeroController : MonoBehaviour {
             m_animator.SetBool("Crouching", true);
             m_body2d.velocity = new Vector2(m_body2d.velocity.x / 2.0f, m_body2d.velocity.y);
         }
-        else if (Input.GetKeyUp("s") && m_crouching)
+        else if (Input.GetKeyUp("s") && m_crouching || Mathf.Abs(m_body2d.velocity.y) > 0 && m_crouching)
         {
             m_crouching = false;
             m_animator.SetBool("Crouching", false);
