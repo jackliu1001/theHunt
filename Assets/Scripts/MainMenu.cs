@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public void gameLoad()
     {
         SceneHandler.loadScene("Game");
+        Time.timeScale = 1;
     }
 
     public void newGame()

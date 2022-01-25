@@ -5,7 +5,7 @@ using UnityEngine;
 public class AIEnemyHit : StateMachineBehaviour
 {
     [SerializeField] private EnemyMovement enemyMovement;
-    [SerializeField] private float idleTime = 1;
+    [SerializeField] private float idleTime = 2f;
     private float idleStartTime;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -41,4 +41,5 @@ public class AIEnemyHit : StateMachineBehaviour
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
+
 }

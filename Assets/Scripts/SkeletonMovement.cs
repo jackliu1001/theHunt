@@ -8,6 +8,7 @@ public class SkeletonMovement : EnemyMovement
     private float acceleration;
     private float runTime;
     protected float currentSpeed;
+    private bool waiting;
     override public void idleStart()
     {
         movementState = MovementStates.idle;

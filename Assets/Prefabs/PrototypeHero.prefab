@@ -180,7 +180,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894328496}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -355,10 +355,11 @@ GameObject:
   - component: {fileID: 7953872935334828980}
   - component: {fileID: 2039257916}
   - component: {fileID: 2128998761}
+  - component: {fileID: 459289916}
   m_Layer: 3
   m_Name: PrototypeHero
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -398,7 +399,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0.2
   m_AngularDrag: 0.05
-  m_GravityScale: 2.25
+  m_GravityScale: 2.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -471,6 +472,19 @@ MonoBehaviour:
   dodgeCrouchLock: 0
   isFacingLeft: 0
   m_maxSpeed: 7.5
+--- !u!114 &459289916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126507520524490402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eceb90a67056764fb2d7dc6a9fac2d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 7853426713638563735}
 --- !u!1 &5291056838949151292
 GameObject:
   m_ObjectHideFlags: 0

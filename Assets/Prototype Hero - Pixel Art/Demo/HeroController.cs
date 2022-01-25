@@ -151,8 +151,8 @@ public class HeroController : MonoBehaviour {
             //Wall Slide
             // True if either both right sensors are colliding and character is facing right
             // OR if both left sensors are colliding and character is facing left
-            m_wallSlide = (m_wallSensorR1.State() && m_wallSensorR2.State() && m_facingDirection == 1) || (m_wallSensorL1.State() && m_wallSensorL2.State() && m_facingDirection == -1);
-            //m_wallSlide = false;
+            //m_wallSlide = (m_wallSensorR1.State() && m_wallSensorR2.State() && m_facingDirection == 1) || (m_wallSensorL1.State() && m_wallSensorL2.State() && m_facingDirection == -1);
+            m_wallSlide = false;
             if (m_grounded)
                 m_wallSlide = false;
             m_animator.SetBool("WallSlide", m_wallSlide);
@@ -344,9 +344,9 @@ public class HeroController : MonoBehaviour {
         else if (Input.GetButtonDown("Jump") && (m_grounded || m_wallSlide) && !m_dodging && !m_ledgeGrab && !m_ledgeClimb && !m_crouching && m_disableMovementTimer < 0.0f)
         {
             //Check if it's a normal jump or a wall jump
-            if (!m_wallSlide)
-                m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-            else
+            //if (!m_wallSlide)
+            //    m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
+            //else
                 m_body2d.velocity = new Vector2(m_facingDirection * m_jumpForce / 2.0f, m_jumpForce);
             //m_facingDirection = -m_facingDirection;
             //m_SR.flipX = !m_SR.flipX;
