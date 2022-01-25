@@ -47382,8 +47382,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 70.002014, y: 10.466484}
-  - {x: 65.09015, y: 12.594368}
+  - {x: 74.09385, y: 13.253164}
+  - {x: 68.97034, y: 14.816657}
   - {x: 63.14529, y: 17.48556}
   - {x: 64.125824, y: 17.925846}
   - {x: 92.05681, y: 17.99318}
@@ -48285,7 +48285,12 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7853426713638563735, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 459289916, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
 --- !u!4 &1897657761 stripped
 Transform:

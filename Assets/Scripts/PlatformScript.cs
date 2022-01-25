@@ -11,7 +11,6 @@ public class PlatformScript : MonoBehaviour
         effector = GetComponent<PlatformEffector2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //if (Input.GetKeyUp(KeyCode.S))

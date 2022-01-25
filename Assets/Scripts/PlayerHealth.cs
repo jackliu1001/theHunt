@@ -31,14 +31,6 @@ public class PlayerHealth : HealthController
         damageCollider.enabled = true;
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.GetComponent<DamageHandler>())
-    //    {
-    //        TakeDamage(collision.GetComponent<DamageHandler>().getDamage());
-    //    }
-    //}
-
     public void respawn()
     {
         currentHealth = maxHealth;

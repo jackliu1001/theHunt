@@ -20,10 +20,7 @@ public class Ladder : MonoBehaviour
         {
             isClimbing = true;
         }
-    }
 
-    private void FixedUpdate()
-    {
         if (isClimbing)
         {
             rb.gravityScale = 0f;
