@@ -48229,6 +48229,10 @@ PrefabInstance:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 401888096}
+    - target: {fileID: 2128998761, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+      propertyPath: m_maxSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5126507520524490402, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
       propertyPath: m_Name
       value: Hero
@@ -48276,6 +48280,10 @@ PrefabInstance:
     - target: {fileID: 7216317338779392757, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7776102926116477038, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
