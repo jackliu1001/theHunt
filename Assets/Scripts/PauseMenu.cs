@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    private  static bool isPaused = false;
+    private static bool isPaused = false;
     public GameObject pauseMenuUI;
+    public static bool Paused { get { return isPaused; } set { isPaused = value; } }
 
     private void Update()
     {

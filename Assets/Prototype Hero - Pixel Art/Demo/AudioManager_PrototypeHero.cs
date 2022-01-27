@@ -8,6 +8,7 @@ public class Sound
     public string m_name;
     public AudioClip[] m_clips;
 
+    public float defaultVolume;
     [Range(0f, 1f)]
     public float volume = 1.0f;
     [Range(0f, 1.5f)]
@@ -18,6 +19,7 @@ public class Sound
 
     private AudioSource m_source;
 
+    
     public void SetSource(AudioSource source)
     {
         m_source = source;
@@ -50,6 +52,11 @@ public class Sound
         else
             return false;
     }
+
+    public void SetVolume(float volume)
+    {
+        m_source.volume = volume;
+    }
 }
 
 public class AudioManager_PrototypeHero : MonoBehaviour
@@ -74,11 +81,23 @@ public class AudioManager_PrototypeHero : MonoBehaviour
 
     private void Start()
     {
+        
         for(int i = 0; i < m_sounds.Length; i++)
         {
             GameObject go = new GameObject("Sound_" + i + "_" + m_sounds[i].m_name);
             go.transform.SetParent(transform);
             m_sounds[i].SetSource(go.AddComponent<AudioSource>());
+            m_sounds[i].defaultVolume = m_sounds[i].volume;
+        }
+        UpdateVolume();
+    }
+
+    public void UpdateVolume()
+    {
+        for (int i = 0; i < m_sounds.Length; i++)
+        {
+
+            m_sounds[i].volume = m_sounds[i].defaultVolume * AudioHandler.Singleton.FXVolume * AudioHandler.Singleton.MasterVolume;
         }
     }
 

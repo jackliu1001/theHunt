@@ -10,6 +10,7 @@ public class SceneLoadHandler : SceneHandler
     private void Start()
     {
         loadPlayer();
+        PauseMenu.Paused = false;
     }
 
     public void loadPlayer()
