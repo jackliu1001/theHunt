@@ -463,6 +463,7 @@ public class HeroController : MonoBehaviour {
         m_dead = false;
         m_animator.Rebind();
         healthController.respawn();
+        m_body2d.velocity = Vector2.zero;
         FindObjectOfType<GameHandler>().respawnPlayer();
     }
 
