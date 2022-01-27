@@ -7,7 +7,6 @@ public class Sound
 {
     public string m_name;
     public AudioClip[] m_clips;
-
     [Range(0f, 1f)]
     public float volume = 1.0f;
     [Range(0f, 1.5f)]
@@ -15,8 +14,10 @@ public class Sound
     public Vector2 m_randomVolumeRange = new Vector2(1.0f, 1.0f);
     public Vector2 m_randomPitchRange = new Vector2(1.0f, 1.0f);
     public bool m_loop = false;
-
+    public float DefaultVolume;
     private AudioSource m_source;
+
+    
 
     public void SetSource(AudioSource source)
     {
@@ -79,6 +80,16 @@ public class AudioManager_PrototypeHero : MonoBehaviour
             GameObject go = new GameObject("Sound_" + i + "_" + m_sounds[i].m_name);
             go.transform.SetParent(transform);
             m_sounds[i].SetSource(go.AddComponent<AudioSource>());
+            m_sounds[i].DefaultVolume = m_sounds[i].volume;
+        }
+        UpdateVolume();
+    }
+
+    public void UpdateVolume()
+    {
+        for(int i =0; i<m_sounds.Length; i++)
+        {
+            m_sounds[i].volume = AudioHandler.Singleton.FXVolume * AudioHandler.Singleton.MasterVolume;
         }
     }
 

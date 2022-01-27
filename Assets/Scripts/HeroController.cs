@@ -69,6 +69,9 @@ public class HeroController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.Paused)
+            return;
+
         // Decrease death respawn timer 
         m_respawnTimer -= Time.deltaTime;
 

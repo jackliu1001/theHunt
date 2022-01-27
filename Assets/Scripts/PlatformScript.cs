@@ -26,7 +26,7 @@ public class PlatformScript : MonoBehaviour
         //    else
         //        waitTime -= Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.S) && Input.GetKeyDown(KeyCode.Space))
         {
             effector.rotationalOffset = 180f;
             StartCoroutine(Platform());
